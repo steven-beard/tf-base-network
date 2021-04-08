@@ -44,15 +44,15 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_application"></a> [application](#input\_application) | The name of the application | `string` | `"base-app"` | no |
 | <a name="input_aws_region"></a> [aws\_region](#input\_aws\_region) | Region to deploy infrastructure to | `string` | `"us-east-1"` | no |
-| <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | the name of the eks cluster | `any` | n/a | yes |
+| <a name="input_eks_cluster_name"></a> [eks\_cluster\_name](#input\_eks\_cluster\_name) | the name of the eks cluster | `string` | n/a | yes |
 | <a name="input_env"></a> [env](#input\_env) | Name of the environment being deployed to | `string` | `"dev"` | no |
-| <a name="input_namespace"></a> [namespace](#input\_namespace) | default namespace that isn't the default namespace.  Defaults to "development" | `string` | `"development"` | no |
-| <a name="input_private_alpha_cidr"></a> [private\_alpha\_cidr](#input\_private\_alpha\_cidr) | CIDR block for private subnet alpha | `any` | n/a | yes |
-| <a name="input_private_bravo_cidr"></a> [private\_bravo\_cidr](#input\_private\_bravo\_cidr) | CIDR block for private subnet bravo | `any` | n/a | yes |
-| <a name="input_public_alpha_cidr"></a> [public\_alpha\_cidr](#input\_public\_alpha\_cidr) | CIDR block for public subnet alpha | `any` | n/a | yes |
-| <a name="input_public_bravo_cidr"></a> [public\_bravo\_cidr](#input\_public\_bravo\_cidr) | CIDR block for public subnet bravo | `any` | n/a | yes |
-| <a name="input_state_bucket"></a> [state\_bucket](#input\_state\_bucket) | Bucket to hold Terraform state in | `any` | n/a | yes |
-| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR block for base-app vpc | `any` | n/a | yes |
+| <a name="input_namespace"></a> [namespace](#input\_namespace) | default namespace | `string` | `"development"` | no |
+| <a name="input_private_alpha_cidr"></a> [private\_alpha\_cidr](#input\_private\_alpha\_cidr) | CIDR block for private subnet alpha | `string` | n/a | yes |
+| <a name="input_private_bravo_cidr"></a> [private\_bravo\_cidr](#input\_private\_bravo\_cidr) | CIDR block for private subnet bravo | `string` | n/a | yes |
+| <a name="input_public_alpha_cidr"></a> [public\_alpha\_cidr](#input\_public\_alpha\_cidr) | CIDR block for public subnet alpha | `string` | n/a | yes |
+| <a name="input_public_bravo_cidr"></a> [public\_bravo\_cidr](#input\_public\_bravo\_cidr) | CIDR block for public subnet bravo | `string` | n/a | yes |
+| <a name="input_state_bucket"></a> [state\_bucket](#input\_state\_bucket) | Bucket to hold Terraform state in | `string` | n/a | yes |
+| <a name="input_vpc_cidr"></a> [vpc\_cidr](#input\_vpc\_cidr) | CIDR block for base-app vpc | `string` | n/a | yes |
 | <a name="input_zones"></a> [zones](#input\_zones) | AZ map by region | `map` | <pre>{<br>  "us-east-1-alpha": "us-east-1a",<br>  "us-east-1-bravo": "us-east-1b",<br>  "us-east-1-charlie": "us-east-1c",<br>  "us-west-2-alpha": "us-west-2a",<br>  "us-west-2-bravo": "us-west-2b",<br>  "us-west-2-charlie": "us-west-2c"<br>}</pre> | no |
 
 ## Outputs

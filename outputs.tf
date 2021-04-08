@@ -18,7 +18,6 @@ output "default_security_group_id" {
   value       = aws_vpc.base-app.default_security_group_id
 }
 
-
 output "default_network_acl_id" {
   description = "The ID of the default network ACL"
   value       = aws_vpc.base-app.default_network_acl_id

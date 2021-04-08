@@ -1,4 +1,5 @@
 variable "aws_region" {
+  description = "Region to deploy infrastructure to"
   default = "us-east-1"
 }
 
@@ -15,9 +16,11 @@ variable "zones" {
 }
 
 variable "application" {
+  description = "The name of the application"
   default = "base-app"
 }
 variable "env" {
+  description = "Name of the environment being deployed to"
   default = "dev"
 }
 
@@ -50,9 +53,7 @@ variable "namespace" {
   default     = "development"
 }
 
-variable "allowed_account_ids" {
-}
-
 variable "state_bucket" {
+  description = "Bucket to hold Terraform state in"
 
 }

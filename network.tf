@@ -1,7 +1,7 @@
 resource "aws_vpc" "base-app" {
-  cidr_block = var.vpc_cidr
+  cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
-  enable_dns_support = true
+  enable_dns_support   = true
   tags = {
     Name                                            = "${var.application}-${var.env}-vpc"
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared"
@@ -18,7 +18,7 @@ resource "aws_subnet" "base-app-public-alpha" {
     Name                                            = "${var.application}-${var.env}-public-alpha",
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared",
     "kubernetes.io/role/elb"                        = 1,
-    Environment = var.env
+    Environment                                     = var.env
   }
 }
 
@@ -30,7 +30,7 @@ resource "aws_subnet" "base-app-private-alpha" {
   tags = {
     Name                                            = "${var.application}-${var.env}-private-alpha",
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared",
-    "kubernetes.io/role/internal-elb"                        = 1
+    "kubernetes.io/role/internal-elb"               = 1
   }
 }
 
@@ -55,7 +55,7 @@ resource "aws_subnet" "base-app-private-bravo" {
   tags = {
     Name                                            = "${var.application}-${var.env}-private-bravo",
     "kubernetes.io/cluster/${var.eks_cluster_name}" = "shared",
-    "kubernetes.io/role/internal-elb"                        = 1
+    "kubernetes.io/role/internal-elb"               = 1
   }
 }
 
@@ -146,34 +146,4 @@ resource "aws_route_table" "base-app-rt-public-bravo" {
 resource "aws_route_table_association" "base-app-rta-public-bravo" {
   subnet_id      = aws_subnet.base-app-public-bravo.id
   route_table_id = aws_route_table.base-app-rt-public-bravo.id
-}
-
-resource "aws_security_group" "eks-security-group" {
-  name   = "eks-security-group"
-  vpc_id = aws_vpc.base-app.id
-
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "TCP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  ingress {
-    from_port   = 443
-    to_port     = 443
-    protocol    = "UDP"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "terraform-eks-demo"
-  }
 }

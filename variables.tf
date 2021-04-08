@@ -1,11 +1,11 @@
 variable "aws_region" {
-  type = string
+  type        = string
   description = "Region to deploy infrastructure to"
-  default = "us-east-1"
+  default     = "us-east-1"
 }
 
 variable "zones" {
-  type = map
+  type        = map(any)
   description = "AZ map by region"
   default = {
     us-west-2-alpha   = "us-west-2a"
@@ -18,54 +18,54 @@ variable "zones" {
 }
 
 variable "application" {
-  type = string
+  type        = string
   description = "The name of the application"
-  default = "base-app"
+  default     = "base-app"
 }
 variable "env" {
-  type = string
+  type        = string
   description = "Name of the environment being deployed to"
-  default = "dev"
+  default     = "dev"
 }
 
 variable "vpc_cidr" {
-  type = string
+  type        = string
   description = "CIDR block for base-app vpc"
 }
 
 variable "public_alpha_cidr" {
-  type = string
+  type        = string
   description = "CIDR block for public subnet alpha"
 }
 
 variable "private_alpha_cidr" {
-  type = string
+  type        = string
   description = "CIDR block for private subnet alpha"
 }
 
 variable "public_bravo_cidr" {
-  type = string
+  type        = string
   description = "CIDR block for public subnet bravo"
 }
 
 variable "private_bravo_cidr" {
-  type = string
+  type        = string
   description = "CIDR block for private subnet bravo"
 }
 
 variable "eks_cluster_name" {
-  type = string
+  type        = string
   description = "the name of the eks cluster"
 }
 
 variable "namespace" {
-  type = string
+  type        = string
   description = "default namespace"
   default     = "development"
 }
 
 variable "state_bucket" {
-  type = string
+  type        = string
   description = "Bucket to hold Terraform state in"
 
 }
